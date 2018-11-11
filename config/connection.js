@@ -1,17 +1,16 @@
-// Dependencies
+//  MySQL Dependency
 var mysql = require("mysql");
 
 var connection;
 
-// Connect with JawsDB database on our Heroku app
-// 	If not found, then run locally
+// prioritize Jaws DB when applicable else use local mysql db
 if (process.env.JAWSDB_URL) {
 	connection = mysql.createConnection(process.env.JAWSDB_URL);
 } else {
 	connection = mysql.createConnection({
 	  host: "localhost",
 	  user: "root",
-	  password: "",
+	  password: "Mp03101981!",
 	  database: "burgers_db"
 	});
 }
@@ -24,5 +23,4 @@ connection.connect(function(err) {
   console.log("connected as id " + connection.threadId);
 });
 
-// Export our MySQL connection
 module.exports = connection;
